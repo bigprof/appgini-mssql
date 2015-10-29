@@ -1,0 +1,100 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-success"><i class="glyphicon glyphicon-print"></i></button>
+		<button type="submit" id="back" title="<%%TRANSLATION(Back)%%>" class="btn btn-warning"><i class="glyphicon glyphicon-remove"></i></button>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Order ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(OrderID)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Customer</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="CustomerID<%%RND1%%>"><%%COMBOTEXT(CustomerID)%%></span></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Employee</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="EmployeeID<%%RND1%%>"><%%COMBOTEXT(EmployeeID)%%></span></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Order Date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(OrderDate)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Required Date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(RequiredDate)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Shipped Date</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(ShippedDate)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Ship Via</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="ShipVia<%%RND1%%>"><%%COMBOTEXT(ShipVia)%%></span></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Freight</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Freight)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Ship Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="ShipName<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Ship Address</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="ShipAddress<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Ship City</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="ShipCity<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Ship Region</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="ShipRegion<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Ship Postal Code</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="ShipPostalCode<%%RND1%%>"></span></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Ship Country</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><span id="ShipCountry<%%RND1%%>"></span></div>
+			</div>
+		</div>
+	</fieldset>
+</div>

@@ -1,0 +1,9 @@
+<!-- Edit this file to change the layout of the highlighted record in the table view -->
+		<td id="suppliers-CompanyName-<%%VALUE(SupplierID)%%>" class=""><%%VALUE(CompanyName)%%></td>
+		<td id="suppliers-ContactName-<%%VALUE(SupplierID)%%>" class=""><%%VALUE(ContactName)%%></td>
+		<td id="suppliers-ContactTitle-<%%VALUE(SupplierID)%%>" class=""><%%VALUE(ContactTitle)%%></td>
+		<td id="suppliers-Country-<%%VALUE(SupplierID)%%>" class=""><%%VALUE(Country)%%></td>
+		<td id="suppliers-Phone-<%%VALUE(SupplierID)%%>" class=""><%%VALUE(Phone)%%></td>
+		<td id="suppliers-Fax-<%%VALUE(SupplierID)%%>" class=""><%%VALUE(Fax)%%></td>
+		<td id="suppliers-HomePage-<%%VALUE(SupplierID)%%>" class=""><a href="link.php?t=suppliers&f=HomePage&i=<%%VALUE(SupplierID)%%>" target="_blank" title="<%%VALUE(HomePage)%%>" class="btn btn-default"><i class="glyphicon glyphicon-globe text-info"></i></a></td>
+		<script>jQuery(function(){ var e_HomePage = '<%%VALUE(HomePage)%%>'; if(e_HomePage == '' || e_HomePage == '&nbsp;') jQuery('#suppliers-HomePage-<%%VALUE(SupplierID)%%>').html(''); });</script>

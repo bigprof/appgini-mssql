@@ -1,0 +1,13 @@
+<!-- Edit this file to change the layout of each record in the table view -->
+<!-- To disable clicking of a field, remove the <%%select%%> and <%%endselect%%> formatters around it-->
+
+<!-- If you wish to hide the table view header that contains the column titles, -->
+<!-- open the generated 'orders_view.php' file in your text editor and -->
+<!-- change the value of $x->ShowTableHeader to 0 -->
+
+		<td id="orders-OrderID-<%%VALUE(OrderID)%%>" class="orders-OrderID text-right"><%%SELECT%%><%%VALUE(OrderID)%%><%%ENDSELECT%%></td>
+		<td id="orders-CustomerID-<%%VALUE(OrderID)%%>" class="orders-CustomerID "><%%SELECT%%><%%VALUE(CustomerID)%%><%%ENDSELECT%%></td>
+		<td id="orders-EmployeeID-<%%VALUE(OrderID)%%>" class="orders-EmployeeID "><%%SELECT%%><%%VALUE(EmployeeID)%%><%%ENDSELECT%%></td>
+		<td id="orders-OrderDate-<%%VALUE(OrderID)%%>" class="orders-OrderDate "><%%SELECT%%><%%VALUE(OrderDate)%%><%%ENDSELECT%%></td>
+		<td id="orders-ShipVia-<%%VALUE(OrderID)%%>" class="orders-ShipVia "><%%SELECT%%><%%VALUE(ShipVia)%%><%%ENDSELECT%%></td>
+		<td id="orders-ShipCountry-<%%VALUE(OrderID)%%>" class="orders-ShipCountry "><%%SELECT%%><%%VALUE(ShipCountry)%%><%%ENDSELECT%%></td>

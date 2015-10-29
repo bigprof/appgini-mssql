@@ -1,0 +1,160 @@
+<!-- Edit this file to change the layout of the detail view form -->
+
+<a name="detail-view"></a>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div class="panel-body" id="order_details_dv_container">
+	<!-- child links -->
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr>
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="order_details_dv_form">
+			<fieldset class="form-horizontal">
+
+				<div class="form-group">
+					<label for="odID" class="control-label col-lg-3">ID</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="odID"><%%VALUE(odID)%%></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="OrderID" class="control-label col-lg-3">Order ID <button class="btn btn-info btn-xs vspacer-sm" type="button" data-toggle="collapse" tabindex="-1" data-target="#OrderID-description"><i class="glyphicon glyphicon-info-sign"></i></button></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="OrderID-description"><div class="alert alert-info">This field is a lookup field that gets its data from the Orders table. Since the Orders table has a large number of orders, AppGini automatically displays this lookup field as an<br />auto-complete. Type part of the order number to see a list of matching orders to choose from.</div></span>
+
+						<div class="row form-control-static"><div class="col-xs-11"><%%COMBO(OrderID)%%><%%PLINK(OrderID)%%><%%ADDNEW(orders)%%></div></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="ProductID" class="control-label col-lg-3">Product</label>
+					<div class="col-lg-9">
+						<div class="row form-control-static"><div class="col-xs-11"><%%COMBO(ProductID)%%><%%PLINK(ProductID)%%><%%ADDNEW(products)%%></div><div class="col-xs-1"><span id="ProductIDLoading"></span></div></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Category" class="control-label col-lg-3">Category</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="Category"></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="UnitPrice" class="control-label col-lg-3">Unit Price <button class="btn btn-info btn-xs vspacer-sm" type="button" data-toggle="collapse" tabindex="-1" data-target="#UnitPrice-description"><i class="glyphicon glyphicon-info-sign"></i></button></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="UnitPrice-description"><div class="alert alert-info">This field will appear formatted as US currency in the table view.</div></span>
+
+						<input maxlength="13" type="text" class="form-control" name="UnitPrice" id="UnitPrice" value="<%%VALUE(UnitPrice)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Quantity" class="control-label col-lg-3">Quantity <button class="btn btn-info btn-xs vspacer-sm" type="button" data-toggle="collapse" tabindex="-1" data-target="#Quantity-description"><i class="glyphicon glyphicon-info-sign"></i></button></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="Quantity-description"><div class="alert alert-info">The table view displays the sum of all item quantities below the quantity column. Although meaningless, this just shows the sum feature provided by AppGini.</div></span>
+
+						<input maxlength="" type="text" class="form-control" name="Quantity" id="Quantity" value="<%%VALUE(Quantity)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Discount" class="control-label col-lg-3">Discount <button class="btn btn-info btn-xs vspacer-sm" type="button" data-toggle="collapse" tabindex="-1" data-target="#Discount-description"><i class="glyphicon glyphicon-info-sign"></i></button></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="Discount-description"><div class="alert alert-info">Enter a discount amount here rather than a percentage or ratio. This field will appear formatted as US currency in the table view.</div></span>
+
+						<input maxlength="13" type="text" class="form-control" name="Discount" id="Discount" value="<%%VALUE(Discount)%%>">
+					</div>
+				</div>
+
+			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<div class="col-md-4 col-lg-2" id="order_details_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div><!-- /div class="panel-body" -->
+	<script>
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			$j('select, input[type=text], textarea').not(':disabled').eq(0).focus();
+			$j('form').eq(0).change(function(){
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%TRANSLATION(ImageFolder)%%>"]').click(function(){ return false; });
+
+
+			if(!embedded_mode){
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-lg)').next().addClass('hspacer-lg');
+
+				$j('.add_new_parent').click(function(){
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function(){
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			$j('form').on('click', '.view_parent', function(){
+
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length){
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				}else{
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length){
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}'){
+					modal_window({
+						url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+						close: function(){
+							var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				}
+			});
+		});
+	</script>

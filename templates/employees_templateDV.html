@@ -1,0 +1,295 @@
+<!-- Edit this file to change the layout of the detail view form -->
+
+<script src="resources/datepicker/js/datepicker.packed.js"></script>
+<link href="resources/datepicker/css/datepicker.css" rel="stylesheet">
+
+<a name="detail-view"></a>
+<div class="panel-heading"><h3 class="panel-title"><strong><%%DETAIL_VIEW_TITLE%%></strong></h3></div>
+
+<div class="panel-body" id="employees_dv_container">
+	<!-- child links -->
+	<div class="row">
+		<div class="col-xs-12">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm" href="employees_view.php?filterer_ReportsTo=<%%URLVALUE(EmployeeID)%%>&<%%EMBEDDED%%>" id="employees_link"><i class="glyphicon glyphicon-list-alt"></i> Employees</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="employees_view.php?filterer_ReportsTo=<%%URLVALUE(EmployeeID)%%>&<%%EMBEDDED%%>" id="xs_employees_link"><i class="glyphicon glyphicon-list-alt"></i> Employees</a>
+			<input type="hidden" id="employees_hclink" value="employees_view.php?filterer_ReportsTo=<%%URLVALUE(EmployeeID)%%>&<%%EMBEDDED%%>">
+			<a class="hidden-xs btn btn-default btn-lg pull-right hidden hspacer-sm" href="orders_view.php?filterer_EmployeeID=<%%URLVALUE(EmployeeID)%%>&<%%EMBEDDED%%>" id="orders_link"><i class="glyphicon glyphicon-list-alt"></i> Orders</a>
+			<a class="visible-xs btn btn-default btn-lg btn-block hidden vspacer-sm" href="orders_view.php?filterer_EmployeeID=<%%URLVALUE(EmployeeID)%%>&<%%EMBEDDED%%>" id="xs_orders_link"><i class="glyphicon glyphicon-list-alt"></i> Orders</a>
+			<input type="hidden" id="orders_hclink" value="orders_view.php?filterer_EmployeeID=<%%URLVALUE(EmployeeID)%%>&<%%EMBEDDED%%>">
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<hr>
+
+	<div class="row">
+		<!-- form inputs -->
+		<div class="col-md-8 col-lg-10" id="employees_dv_form">
+			<fieldset class="form-horizontal">
+
+				<div class="form-group">
+					<label for="EmployeeID" class="control-label col-lg-3">Employee ID</label>
+					<div class="col-lg-9">
+						<div class="form-control-static" id="EmployeeID"><%%VALUE(EmployeeID)%%></div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="TitleOfCourtesy" class="control-label col-lg-3">Title Of Courtesy</label>
+					<div class="col-lg-9">
+						<input maxlength="50" type="text" class="form-control" name="TitleOfCourtesy" id="TitleOfCourtesy" value="<%%VALUE(TitleOfCourtesy)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-lg-3">Photo <button class="btn btn-info btn-xs vspacer-sm" type="button" data-toggle="collapse" tabindex="-1" data-target="#Photo-description"><i class="glyphicon glyphicon-info-sign"></i></button></label>
+					<div class="col-lg-9">
+						<span class="help-block collapse" id="Photo-description"><div class="alert alert-info">Maximum file size allowed: 150 KB.<br />Allowed file types: jpg, jpeg, gif, png</div></span>
+
+						<div class="row form-control-static"><div class="col-md-8">
+
+						<img src="<%%TRANSLATION(ImageFolder)%%><%%VALUE(Photo)%%>" class="img-responsive img-thumbnail" id="Photo-image">
+</div>
+
+												<div class="col-md-4" style="overflow-x: hidden;">
+							<div class="hidden-md hidden-lg vspacer-lg"></div>
+							<%%UPLOADFILE(Photo)%%>
+							<%%REMOVEFILE(Photo)%%>
+						</div>
+					</div>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="LastName" class="control-label col-lg-3">Last Name</label>
+					<div class="col-lg-9">
+						<input maxlength="50" type="text" class="form-control" name="LastName" id="LastName" value="<%%VALUE(LastName)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="FirstName" class="control-label col-lg-3">First Name</label>
+					<div class="col-lg-9">
+						<input maxlength="10" type="text" class="form-control" name="FirstName" id="FirstName" value="<%%VALUE(FirstName)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Title" class="control-label col-lg-3">Title</label>
+					<div class="col-lg-9">
+						<input maxlength="30" type="text" class="form-control" name="Title" id="Title" value="<%%VALUE(Title)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="BirthDate" class="control-label col-lg-3">Birth Date</label>
+					<div class="col-lg-9">
+						<%%COMBO(BirthDate)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="HireDate" class="control-label col-lg-3">Hire Date</label>
+					<div class="col-lg-9">
+						<%%COMBO(HireDate)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Address" class="control-label col-lg-3">Address</label>
+					<div class="col-lg-9">
+						<textarea class="form-control" name="Address" id="Address" rows="5"><%%VALUE(Address)%%></textarea>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="City" class="control-label col-lg-3">City</label>
+					<div class="col-lg-9">
+						<input maxlength="15" type="text" class="form-control" name="City" id="City" value="<%%VALUE(City)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Region" class="control-label col-lg-3">Region</label>
+					<div class="col-lg-9">
+						<input maxlength="15" type="text" class="form-control" name="Region" id="Region" value="<%%VALUE(Region)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="PostalCode" class="control-label col-lg-3">Postal Code</label>
+					<div class="col-lg-9">
+						<input maxlength="10" type="text" class="form-control" name="PostalCode" id="PostalCode" value="<%%VALUE(PostalCode)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Country" class="control-label col-lg-3">Country</label>
+					<div class="col-lg-9">
+						<%%COMBO(Country)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="HomePhone" class="control-label col-lg-3">Home Phone</label>
+					<div class="col-lg-9">
+						<input maxlength="24" type="text" class="form-control" name="HomePhone" id="HomePhone" value="<%%VALUE(HomePhone)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Extension" class="control-label col-lg-3">Extension</label>
+					<div class="col-lg-9">
+						<input maxlength="4" type="text" class="form-control" name="Extension" id="Extension" value="<%%VALUE(Extension)%%>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="Notes" class="control-label col-lg-3">Notes</label>
+					<div class="col-lg-9">
+						<%%HTMLAREA(Notes)%%>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="ReportsTo" class="control-label col-lg-3">ReportsTo</label>
+					<div class="col-lg-9">
+						<div class="row form-control-static"><div class="col-xs-11"><%%COMBO(ReportsTo)%%></div>
+					</div>
+				</div>
+
+</div>			</fieldset>
+		</div>
+
+		<!-- DV action buttons -->
+		<div class="col-md-4 col-lg-2" id="employees_dv_action_buttons">
+			<div class="btn-toolbar">
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%UPDATE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%DESELECT_BUTTON%%>
+					<%%DVPRINT_BUTTON%%>
+					<%%DELETE_BUTTON%%>
+				</div><p></p>
+				<div class="btn-group-vertical btn-group-lg" style="width: 100%;">
+					<%%INSERT_BUTTON%%>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- child records -->
+	<hr>
+	<div class="row">
+		<div class="col-lg-10 col-lg-offset-1">
+			<div id="employees-children" class="children-tabs"></div>
+		</div>
+	</div>
+
+</div><!-- /div class="panel-body" -->
+	<script src="nicEdit.js"></script>
+	<script>
+		bkLib.onDomLoaded(function(){
+			if(document.getElementById('Notes')!=undefined)
+				new nicEditor().panelInstance('Notes');
+
+			$j(function(){
+				$j('.nicEdit-panelContain').parent().width('90%');
+				$j('.nicEdit-panelContain').parent().next().width('88%');
+				$j('.nicEdit-main').width('99%');
+			});
+		});
+		$j(function() {
+			var add_new_mode = (!$j('input[name=SelectedID]').val());
+			var embedded_mode = ($j('input[name=Embedded]').val() == 1);
+
+			$j('select, input[type=text], textarea').not(':disabled').eq(0).focus();
+			$j('form').eq(0).change(function(){
+				if($j(this).data('already_changed')) return;
+				if($j('#deselect').length) $j('#deselect').removeClass('btn-default').addClass('btn-warning').get(0).lastChild.data = " <%%TRANSLATION(Cancel)%%>";
+				$j(this).data('already_changed', true);
+			});
+
+			$j('a[href="<%%TRANSLATION(ImageFolder)%%>"]').click(function(){ return false; });
+
+			if(embedded_mode){
+				/* hide links to children tables in embedded mode */
+				$j('.detail_view a[id$=_link]').remove();
+
+				/* append embedded mode to all links */
+				var append_embedded = function(){
+					$j('a[href]:not([href^=#]):not([href^=javascript]):not([href$="Embedded=1"]):not([href*="link.php?t="]):not(href^="mailto:")').each(
+						function(){
+							$j(this).attr('href', $j(this).attr('href') + '&Embedded=1');
+						}
+					);
+				}
+				setTimeout(append_embedded, 500);
+				setTimeout(append_embedded, 1500);
+				setTimeout(append_embedded, 2500);
+				setTimeout(append_embedded, 3500);
+			}
+
+			/* when no record is selected ('add new' mode) */
+			if(add_new_mode){
+				/* hide links to children tables */
+				$j('.detail_view a[id$=_link]').remove();
+			}else{
+				post(
+					'parent-children.php', {
+						ParentTable: 'employees',
+						SelectedID: '<%%VALUE(EmployeeID)%%>',
+						Operation: 'show-children'
+					},
+					'employees-children'
+				);
+			}
+
+			if(!embedded_mode){
+				/* add a horizontal spacer to [add new parent] buttons that don't have a spacered element before them */
+				$j('.add_new_parent').prev(':not(.hspacer-lg)').next().addClass('hspacer-lg');
+
+				$j('.add_new_parent').click(function(){
+					var pt = $j(this).attr('id').replace(/_add_new$/, '');
+					modal_window({
+						url: pt + '_view.php?addNew_x=1&Embedded=1',
+						close: function(){
+							var field_id = $j('#' + pt + '_add_new').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				});
+			}
+
+			$j('form').on('click', '.view_parent', function(){
+
+				var pt = $j(this).attr('id').replace(/_view_parent$/, '');
+				if($j(this).prevAll('input:hidden').length){
+					var parent_id = $j(this).prevAll('input:hidden').eq(0).val();
+				}else{
+					var parent_id = $j(this).prevAll().children('input:hidden').eq(0).val();
+				}
+
+				/* handle radio lookups */
+				if($j(this).prevAll('[type=radio]').length){
+					parent_id = $j(this).prevAll('[type=radio]').eq(0).val();
+				}
+
+				if(parent_id != '{empty_value}'){
+					modal_window({
+						url: pt + '_view.php?Embedded=1&SelectedID=' + encodeURIComponent(parent_id),
+						close: function(){
+							var field_id = $j('#' + pt + '_view_parent').prevAll('input:hidden').eq(0).attr('id');
+							$j('#' + field_id + '-container').select2('focus').select2('focus');
+						},
+						size: 'full',
+						title: $j(this).attr('title')
+					});
+				}
+			});
+		});
+	</script>

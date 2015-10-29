@@ -1,0 +1,82 @@
+<!-- Edit this file to change the layout of the detail view print preview page -->
+
+
+<div class="panel-heading"><h3 class="panel-title">
+	<strong><%%DETAIL_VIEW_TITLE%%></strong>
+	<div class="hidden-print pull-right">
+		<button type="button" id="print" onclick="window.print();" title="<%%TRANSLATION(Print)%%>" class="btn btn-success"><i class="glyphicon glyphicon-print"></i></button>
+		<button type="submit" id="back" title="<%%TRANSLATION(Back)%%>" class="btn btn-warning"><i class="glyphicon glyphicon-remove"></i></button>
+	</div>
+	<div class="clearfix"></div>
+</h3></div>
+
+<div class="panel-body">
+	<fieldset class="form-horizontal">
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Customer ID</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(CustomerID)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Company Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(CompanyName)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Contact Name</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ContactName)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Contact Title</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(ContactTitle)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Address</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Address)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">City</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(City)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Region</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Region)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Postal Code</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(PostalCode)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Country</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%COMBOTEXT(Country)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Phone</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Phone)%%></div>
+			</div>
+		</div>
+		<div class="form-group" style="border-bottom: dotted 1px #DDD;">
+			<label class="col-xs-3 control-label">Fax</label>
+			<div class="col-xs-9">
+				<div class="form-control-static"><%%VALUE(Fax)%%></div>
+			</div>
+		</div>
+	</fieldset>
+</div>
